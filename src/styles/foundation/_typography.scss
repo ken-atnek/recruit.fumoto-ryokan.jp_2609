@@ -1,0 +1,9 @@
+@use './variables' as variables;
+
+@mixin japaneseText {
+  font-family: variables.$font-family-ja;
+}
+
+@mixin englishDisplay {
+  font-family: variables.$font-family-en;
+}
