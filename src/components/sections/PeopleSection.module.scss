@@ -58,13 +58,13 @@
         }
     }
     .peopleContent {
-        padding-inline: 5rem;
+        padding-inline: 6cqw;
         font-size: inherit;
         display: flex;
         flex-direction: column;
         margin-top: 7rem;
         h3 {
-            font-size: fz(30);
+            font-size: clamp(12px, 4cqw, 30px);
             font-weight: 700;
             line-height: 1.9;
             letter-spacing: 0.1em;
@@ -73,7 +73,7 @@
             margin-top: 3rem;
             font-size: inherit;
             p {
-                font-size: fz(24);
+                font-size: clamp(12px, 3.2cqw, 24px);
                 font-weight: 500;
                 line-height: 2;
                 letter-spacing: 0.1em;

@@ -41,15 +41,18 @@
         display: flex;
         flex-direction: column;
         gap: 6rem;
-        width: 65rem;
+        width: 100%;
+        padding-inline: 6cqw;
         margin: 4.4rem auto 0;
         font-size: inherit;
+
         .profileSummary {
+            width: 100%;
             font-size: inherit;
             p {
                 min-height: 7.1rem;
                 padding-block: 0.7rem;
-                font-size: fz(30);
+                font-size: clamp(12px, 4cqw, 30px);
                 font-weight: 700;
                 line-height: 1.9;
                 letter-spacing: 0.1em;
@@ -61,7 +64,7 @@
         font-size: inherit;
         h3 {
             color: #638359;
-            font-size: fz(28);
+            font-size: clamp(12px, 3.733cqw, 28px);
             font-weight: 700;
             line-height: 2;
             letter-spacing: 0.1em;
@@ -70,7 +73,7 @@
             margin-top: 2.2rem;
             font-size: inherit;
             p {
-                font-size: fz(24);
+                font-size: clamp(12px, 3.2cqw, 24px);
                 font-weight: 500;
                 line-height: 2;
                 letter-spacing: 0.1em;
@@ -79,7 +82,7 @@
     }
     .schedule {
         h3 {
-            font-size: fz(30);
+            font-size: clamp(12px, 4cqw, 30px);
             font-weight: 700;
             line-height: 2.4;
             letter-spacing: 0.1em;
@@ -102,7 +105,7 @@
                 grid-template-columns: auto 1fr;
                 gap: 4rem;
                 align-items: start;
-                font-size: fz(28);
+                font-size: clamp(12px, 3.733cqw, 28px);
                 font-weight: 700;
                 line-height: 2;
                 letter-spacing: 0.1em;
@@ -112,7 +115,7 @@
                 }
             }
             p {
-                font-size: fz(24);
+                font-size: clamp(12px, 3.2cqw, 24px);
                 font-weight: 500;
                 line-height: 2;
                 letter-spacing: 0.1em;
@@ -137,14 +140,14 @@
         }
         h3 {
             color: #ffb02a;
-            font-size: fz(28);
+            font-size: clamp(12px, 3.733cqw, 28px);
             font-weight: 700;
             text-align: center;
             letter-spacing: 0.1em;
         }
         p {
             margin-top: 5rem;
-            font-size: fz(24);
+            font-size: clamp(12px, 3.2cqw, 24px);
             font-weight: 500;
             line-height: 2;
             letter-spacing: 0.1em;

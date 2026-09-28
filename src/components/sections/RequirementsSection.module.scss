@@ -11,18 +11,18 @@
     margin-top: 10rem;
     padding-bottom: 0;
     color: $main-sub-black;
-    padding-inline: 5rem;
+    padding-inline: 6cqw;
     .card {
         width: 100%;
         margin-inline: auto;
-        padding: 5rem 5rem 8.5rem;
+        padding: 5rem 6cqw 8.5rem;
         border: 1px solid #71645e;
         border-radius: 3rem;
         background-color: $pure-white;
         font-size: inherit;
         h3 {
             margin-bottom: 2.2rem;
-            font-size: fz(28);
+            font-size: clamp(12px, 3.733cqw, 28px);
             font-weight: 700;
             line-height: 1.6;
             letter-spacing: 0.1em;
@@ -62,12 +62,12 @@
                             color: $pure-black;
                             line-height: 2;
                             font-weight: 500;
-                            font-size: fz(30);
+                            font-size: clamp(12px, 4cqw, 30px);
                         }
                         .notes {
                             font-size: inherit;
                             p {
-                                font-size: fz(24);
+                                font-size: clamp(12px, 3.2cqw, 24px);
                                 font-weight: 400;
                                 line-height: 1.6;
                             }
@@ -86,7 +86,7 @@
                 h4,
                 p,
                 li {
-                    font-size: fz(24);
+                    font-size: clamp(12px, 3.2cqw, 24px);
                     // font-weight: 500;
                     letter-spacing: 0.1em;
                 }
@@ -108,7 +108,7 @@
                 font-size: inherit;
                 counter-reset: number 0;
                 li {
-                    font-size: fz(24);
+                    font-size: clamp(12px, 3.2cqw, 24px);
                     line-height: 1.6;
                     &::before {
                         content: counter(number) ".";
@@ -119,7 +119,7 @@
             }
             .selectionNote {
                 margin-top: 2rem;
-                font-size: fz(24);
+                font-size: clamp(12px, 3.2cqw, 24px);
                 line-height: 1.6;
             }
         }
@@ -163,7 +163,7 @@
                 bottom: 2.3rem;
                 left: 0;
                 color: $pure-white;
-                font-size: fz(24);
+                font-size: clamp(12px, 3.2cqw, 24px);
                 line-height: 1.6;
                 text-align: center;
                 letter-spacing: 0.1em;
@@ -212,7 +212,7 @@
         color: $pure-white;
         text-transform: uppercase;
         font-weight: 900;
-        font-size: fz(24);
+        font-size: clamp(12px, 3.2cqw, 24px);
         letter-spacing: 0.1em;
     }
     img {
