@@ -1,6 +1,6 @@
 /* =======================================
- * ふもと旅館採用 フォントmixin
- * URL: /src/styles/foundation/_typography.scss
+ * ふもと旅館採用 インタラクションmixin
+ * URL: /src/styles/foundation/_interaction.scss
  * Referenced in: /src/styles/foundation/_index.scss, /src/styles/globals.scss, /src/styles/foundation/_ui.scss
  * Created: 2026-07-07
  * Last updated: 2026-09-21
@@ -8,14 +8,12 @@
  * ======================================= */
 
 /* =================================
- * フォント設定
+ * ホバー処理
  * ------------------------------ */
-@mixin zen-kaku-gothic-antique {
-    font-family:
-        "Zen Kaku Gothic Antique", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-        "Yu Gothic", sans-serif;
-}
-
-@mixin bodoni-moda {
-    font-family: "Bodoni Moda", "Times New Roman", serif;
+@mixin hover {
+    @media (hover: hover) {
+        &:where(:any-link, :enabled, summary):hover {
+            @content;
+        }
+    }
 }

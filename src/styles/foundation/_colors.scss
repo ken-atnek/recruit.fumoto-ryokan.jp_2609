@@ -1,0 +1,30 @@
+/* =======================================
+ * ふもと旅館採用 カラー定義
+ * URL: /src/styles/foundation/_colors.scss
+ * Referenced in: /src/styles/foundation/_index.scss, /src/styles/globals.scss, /src/styles/foundation/_ui.scss
+ * Created: 2026-07-07
+ * Last updated: 2026-09-21
+ * Created source: ファイル作成日時（移植元由来）
+ * ======================================= */
+
+/* =================================
+ * カラー変数
+ * ------------------------------ */
+
+$main-sub-black: #3a3a3a;
+$main-normal-black: #1c1c1c;
+$main-light-black: #6b6b6b;
+$main-dark-purple: #4c3f57;
+$normal-off-white: #efeff2;
+$pure-white: #fff;
+$pure-black: #000;
+
+/* =================================
+ * カラー定義
+ * ------------------------------ */
+:root {
+    /* base */
+    --color-white-100: #fdfeff;
+    /* semantic */
+    --main-white: var(--color-white-100);
+}

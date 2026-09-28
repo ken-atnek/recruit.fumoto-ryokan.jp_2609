@@ -1,0 +1,119 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 ValueSection スタイル
+ * URL: /src/components/sections/ValueSection.module.scss
+ * Referenced in: /src/components/sections/ValueSection.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+
+.value {
+    color: $main-sub-black;
+    padding-block: 20rem;
+    .valueVisual {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 3rem 3rem 0 0;
+        font-size: inherit;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 43.8rem;
+            background: linear-gradient(
+                to bottom,
+                rgb(255 255 255 / 0%) 23%,
+                $pure-white 83%
+            );
+        }
+        .valueImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 37% center;
+        }
+        .sectionHeading {
+            @include heading-title;
+            top: 7rem;
+            right: 5rem;
+            z-index: 2;
+            color: $pure-white;
+        }
+    }
+    .valueContent {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding-inline: 5rem;
+        font-size: inherit;
+        margin: -11.5rem auto 0;
+        .introduction {
+            font-size: fz(30);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+
+            p {
+                line-height: 1.9;
+                font-size: inherit;
+            }
+        }
+    }
+    .valueList {
+        display: flex;
+        flex-direction: column;
+        gap: 5.6rem 0;
+        margin-top: 6.9rem;
+        list-style: none;
+        font-size: inherit;
+        .valueItem {
+            display: grid;
+            grid-template-columns: 5.5rem minmax(0, 1fr);
+            gap: 0 2.5rem;
+            font-size: inherit;
+            .number {
+                position: relative;
+                align-self: stretch;
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                span {
+                    z-index: 2;
+                    color: $pure-white;
+                    font-size: fz(24);
+                    aspect-ratio: 1;
+                    border-radius: 50%;
+                    width: 5.5rem;
+                    background-color: #231815;
+                    @include flex-center;
+                }
+                &::after {
+                    content: "";
+                    width: 2px;
+                    background-color: #231815;
+                    flex: 1;
+                }
+            }
+            .itemContent {
+                font-size: inherit;
+                h3 {
+                    font-size: fz(28);
+                    font-weight: 700;
+                    line-height: 2;
+                    letter-spacing: 0.1em;
+                }
+                p {
+                    margin-top: 2rem;
+                    font-size: fz(24);
+                    font-weight: 500;
+                    line-height: 2;
+                    letter-spacing: 0.1em;
+                }
+            }
+        }
+    }
+}

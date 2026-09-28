@@ -1,0 +1,125 @@
+---
+/* =======================================
+ * ふもと旅館採用 Header
+ * URL: /src/components/common/Header.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-19
+ * Last updated: 2026-09-21
+ * ======================================= */
+import styles from "./Header.module.scss";
+
+const navigationItems = [
+  { href: "#message", label: "メッセージ" },
+  { href: "#about", label: "ふもと旅館について" },
+  { href: "#features", label: "ふもと旅館の特徴" },
+  { href: "#values", label: "大切にしていること" },
+  { href: "#people", label: "求める人材" },
+  { href: "#voices", label: "先輩紹介" },
+  { href: "#requirements", label: "募集要項" },
+  { href: "#entry", label: "採用ご応募" },
+] as const;
+---
+
+<header class={styles.header} data-header>
+  <a
+    class={styles.logoLink}
+    href="/"
+    aria-label="ふもと旅館 採用サイト トップへ"
+  >
+    <img
+      src="/images/common/logo-bk.webp"
+      alt="ふもと旅館"
+      width="578"
+      height="215"
+    />
+  </a>
+
+  <nav aria-label="メインナビゲーション">
+    {
+      navigationItems.map((item) => (
+        <a class={styles.navigationLink} href={item.href}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <p class={styles.jobOpenings}>JOB OPENINGS</p>
+  <button
+    class={styles.menuButton}
+    type="button"
+    aria-controls="mobile-navigation"
+    aria-expanded="false"
+    aria-label="メニューを開く"
+    data-menu-button
+  >
+    <img
+      class={`${styles.menuIcon} ${styles.menuIconOpen}`}
+      src="/images/common/hamburger-open.webp"
+      alt=""
+      width="64"
+      height="50"
+    />
+    <img
+      class={`${styles.menuIcon} ${styles.menuIconClose}`}
+      src="/images/common/hamburger-close.webp"
+      alt=""
+      width="71"
+      height="73"
+    />
+  </button>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  const menuButton =
+    header?.querySelector<HTMLButtonElement>("[data-menu-button]");
+  const mobileNavigation = header?.querySelector<HTMLElement>(
+    "[data-mobile-navigation]",
+  );
+  const mobileNavigationList = header?.querySelector<HTMLElement>(
+    "[data-mobile-navigation-list]",
+  );
+
+  if (header && menuButton && mobileNavigation && mobileNavigationList) {
+    document.documentElement.classList.add("hasJs");
+    mobileNavigation.hidden = true;
+
+    const setMenuOpen = (isOpen: boolean) => {
+      header.toggleAttribute("data-menu-open", isOpen);
+      document.body.classList.toggle("isMenuOpen", isOpen);
+      mobileNavigation.hidden = !isOpen;
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "メニューを閉じる" : "メニューを開く",
+      );
+    };
+
+    menuButton.addEventListener("click", () => {
+      setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
+    });
+
+    mobileNavigation.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (
+        target instanceof Node &&
+        (!mobileNavigationList.contains(target) ||
+          (target instanceof Element && target.closest("a")))
+      ) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        menuButton.getAttribute("aria-expanded") === "true"
+      ) {
+        setMenuOpen(false);
+        menuButton.focus();
+      }
+    });
+  }
+</script>

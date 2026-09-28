@@ -1,0 +1,54 @@
+---
+/* =======================================
+ * ふもと旅館採用 MessageSection
+ * URL: /src/components/sections/MessageSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+import { Image } from "astro:assets";
+import messagePhoto from "../../assets/message/message-photo.webp";
+import messageQuote from "../../assets/message/message-quote.svg";
+import styles from "./MessageSection.module.scss";
+---
+
+<section class={styles.message} id="message" aria-labelledby="message-title">
+  <div class={styles.introduction}>
+    <header class={styles.sectionHeading}>
+      <span class={styles.headingEnglish} aria-hidden="true">messege</span>
+      <h2 class={styles.headingJapanese} id="message-title">メッセージ</h2>
+    </header>
+
+    <Image
+      class={styles.messageQuote}
+      src={messageQuote}
+      alt="お客様にとっても、従業員にとっても、我が家のように。"
+      width={229}
+      height={424}
+    />
+  </div>
+
+  <figure class={styles.portrait}>
+    <Image
+      src={messagePhoto}
+      alt="ふもと旅館 若女将 漣祐子"
+      width={719}
+      height={707}
+    />
+    <figcaption class={styles.romanName}>
+      <span>YUKO</span>
+      <span>SAZANAMI</span>
+    </figcaption>
+  </figure>
+
+  <div class={styles.messageBody}>
+    <h3>「おかえりなさい」を<br />届ける仲間を、募集します。</h3>
+    <p>
+      ふもと旅館が大切にしているのは、立派な経歴よりも、人を想う気持ちです。お客さまの旅の疲れが、ふっとほどける。そんな時間を、私たちと一緒につくりませんか。旅館の仕事が初めてでも大丈夫。一つひとつ、私がお教えします。
+    </p>
+    <p class={styles.signature}>
+      <span>ふもと旅館　若女将</span>
+      <span>漣 祐子</span>
+    </p>
+  </div>
+</section>

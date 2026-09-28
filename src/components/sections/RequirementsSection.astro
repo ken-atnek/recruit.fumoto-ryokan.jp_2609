@@ -1,0 +1,263 @@
+---
+/* =======================================
+ * ふもと旅館採用 RequirementsSection
+ * URL: /src/components/sections/RequirementsSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+import { Image } from "astro:assets";
+import dormCommonSpace from "../../assets/requirements/dorm-common-space.webp";
+import styles from "./RequirementsSection.module.scss";
+import textEntry from "../../assets/header/text-entry.svg";
+
+const jobTypes = [
+  "① プロジェクトマネージャー(管理職候補)",
+  "② フロント・接客(客室係)・調理スタッフ",
+];
+
+const benefits = [
+  "社会保険完備",
+  "制服貸与",
+  "まかないあり",
+  "家具・家電付き社員寮完備(月額10,000円)",
+  "寮内Wi-Fi完備",
+  "水道費無料",
+  "無料駐車場あり",
+  "交通費支給制度あり",
+  "従業員専用の個室温泉あり",
+  "共用洗濯乾燥機あり",
+];
+
+const dormSlides = [
+  {
+    src: dormCommonSpace,
+    alt: "社員寮の共用スペース",
+    caption: "社員共用スペース",
+  },
+];
+
+const selectionSteps = [
+  "お電話またはメールでお問い合わせ",
+  "履歴書のご提出",
+  "書類選考",
+  "面接",
+  "採用決定",
+];
+---
+
+<section
+  class={styles.requirements}
+  id="requirements"
+  aria-labelledby="requirements-title"
+>
+  <h2 class="sr-only" id="requirements-title">募集要項</h2>
+
+  <div class={styles.card}>
+    <div class={styles.detailList}>
+      <section class={styles.detailGroup}>
+        <h3>募集職種</h3>
+        <ol class={styles.jobList}>
+          {jobTypes.map((jobType) => <li>{jobType}</li>)}
+        </ol>
+        <p>
+          適性やご希望を踏まえて、担当業務を決定します。状況に応じて、ふもとグループ内の「ふもと旅館」「旅館こうの湯」「EAT
+          LABO BR」で勤務していただく場合があります。
+        </p>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>雇用形態</h3>
+        <p>正社員・アルバイト</p>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>給与</h3>
+        <div class={styles.salaryList}>
+          <div>
+            <h4>① プロジェクトマネージャー(正社員)</h4>
+            <p class={styles.salary}>月給280,000円～</p>
+            <p>※業務経験や能力を考慮して決定します。</p>
+          </div>
+          <div>
+            <h4>② フロント・接客・調理スタッフ(正社員)</h4>
+            <p class={styles.salary}>月給230,000円～</p>
+          </div>
+          <div>
+            <h4>アルバイト</h4>
+            <p class={styles.salary}>時給1,100円～</p>
+            <div class={styles.notes}>
+              <p>
+                ※最長3か月の研修期間があります。研修期間中は月給190,000円～です。
+              </p>
+              <p>※フロント希望の方も、1か月間の客室業務研修があります。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>勤務時間</h3>
+        <p>6:30～22:00の間で実働8時間　シフト制</p>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>休日・休暇</h3>
+        <p>月8日</p>
+        <ul class={styles.bulletList}>
+          <li>有給休暇</li>
+          <li>リフレッシュ休暇</li>
+          <li>慶弔休暇</li>
+        </ul>
+        <p>※繁忙期には公休日に出勤をお願いする場合があります。</p>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>応募資格</h3>
+        <p>22歳～60歳(経験者優遇)</p>
+        <p>
+          旅館業が未経験の方も、人を喜ばせることが好きで、前向きに学ぶ気持ちのある方を歓迎します。
+        </p>
+      </section>
+
+      <section class={styles.detailGroup}>
+        <h3>福利厚生・待遇</h3>
+        <ul class={styles.bulletList}>
+          {benefits.map((benefit) => <li>{benefit}</li>)}
+        </ul>
+        <p class={styles.dormDescription}>
+          社員寮には、冷蔵庫・エアコン・テレビ・寝具を備えています。遠方から移住される方も、すぐに新しい生活を始められます。
+        </p>
+      </section>
+    </div>
+
+    <div
+      class={styles.dormSlider}
+      data-dorm-slider
+      data-slide-count={dormSlides.length}
+      tabindex="0"
+      role="region"
+      aria-label="社員寮の写真"
+    >
+      <div class={styles.slideList}>
+        {
+          dormSlides.map((slide, index) => (
+            <figure class={styles.slide} data-dorm-slide hidden={index !== 0}>
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                width={1200}
+                height={800}
+              />
+              <figcaption>{slide.caption}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
+      <div class={styles.sliderControls}>
+        <div class={styles.pagination} aria-label="写真を選択">
+          {
+            dormSlides.map((_, index) => (
+              <button
+                type="button"
+                data-dorm-dot
+                aria-label={`${index + 1}枚目の写真を表示`}
+                aria-current={index === 0 ? "true" : undefined}
+              />
+            ))
+          }
+        </div>
+      </div>
+      <p class="sr-only" data-dorm-status aria-live="polite">
+        1 / {dormSlides.length}
+      </p>
+    </div>
+
+    <section class={`${styles.detailGroup} ${styles.bottomSelection}`}>
+      <h3>選考の流れ</h3>
+      <ol class={styles.selectionList}>
+        {selectionSteps.map((step) => <li>{step}</li>)}
+      </ol>
+      <p class={styles.selectionNote}>
+        オンラインでの面接も可能です。遠方にお住まいの方も、どうぞお気軽にご応募ください。
+      </p>
+    </section>
+    <a class={styles.entryLink} id="entry" aria-label="採用応募へ移動">
+      <span>entry</span>
+      <Image src={textEntry} alt="" />
+    </a>
+  </div>
+</section>
+
+<script>
+  const initializeDormSlider = (slider: HTMLElement) => {
+    if (slider.dataset.initialized === "true") return;
+
+    const slides = Array.from(
+      slider.querySelectorAll<HTMLElement>("[data-dorm-slide]"),
+    );
+    const dots = Array.from(
+      slider.querySelectorAll<HTMLButtonElement>("[data-dorm-dot]"),
+    );
+    const status = slider.querySelector<HTMLElement>("[data-dorm-status]");
+
+    if (!slides.length || !status) return;
+
+    let currentIndex = 0;
+    let pointerStartX: number | null = null;
+
+    const showSlide = (nextIndex: number) => {
+      currentIndex = (nextIndex + slides.length) % slides.length;
+
+      slides.forEach((slide, index) => {
+        slide.hidden = index !== currentIndex;
+      });
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.setAttribute("aria-current", "true");
+        } else {
+          dot.removeAttribute("aria-current");
+        }
+      });
+      status.textContent = `${currentIndex + 1} / ${slides.length}`;
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => showSlide(index));
+    });
+
+    slider.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(currentIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(currentIndex + 1);
+      }
+    });
+
+    slider.addEventListener("pointerdown", (event) => {
+      pointerStartX = event.clientX;
+    });
+    slider.addEventListener("pointerup", (event) => {
+      if (pointerStartX === null) return;
+
+      const distance = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (slides.length < 2) return;
+      if (Math.abs(distance) < 40) return;
+      showSlide(currentIndex + (distance < 0 ? 1 : -1));
+    });
+    slider.addEventListener("pointercancel", () => {
+      pointerStartX = null;
+    });
+
+    slider.dataset.initialized = "true";
+  };
+
+  document
+    .querySelectorAll<HTMLElement>("[data-dorm-slider]")
+    .forEach(initializeDormSlider);
+</script>

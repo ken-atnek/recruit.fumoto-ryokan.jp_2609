@@ -113,11 +113,77 @@ import styles from './Header.module.scss';
 - SEO上必要な本文をJavaScriptで後から生成しない
 - 動きを追加する場合は`prefers-reduced-motion`を考慮する
 
-## コメント
+## コメントヘッダー
 
-- コードを読めば分かる内容をコメントで繰り返さない
+新規作成するソースファイルには、用途・参照元・作成日・更新日が分かるコメントヘッダーを記載します。
+
+### 対象
+
+- `src/**/*.astro`
+- `src/**/*.scss`
+- 手動で作成する`src/**/*.ts`（`env.d.ts`などの生成ファイルは除く）
+
+### 共通ルール
+
+- 新規ファイルの作成時に記載する
+- `URL`はプロジェクトルートからの絶対パス風で記載する
+- `Referenced in`は主な呼び出し元または利用ページを記載する
+- `Created`は作成日を保持する
+- ファイルを修正したら`Last updated`を更新する
+- 日付は`YYYY-MM-DD`で統一する
+- タイトルは「ふもと旅館採用 + コンポーネント名・ページ名・用途」で簡潔に記載する
+- 既存ファイルにコメントヘッダーがない場合は、そのファイルを次に修正する時に追加する
+
+### Astroテンプレート
+
+Astroのフロントマター内で、importより前に記載します。
+
+```astro
+---
+/* =======================================
+ * ふもと旅館採用 Header
+ * URL: /src/components/common/Header.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: YYYY-MM-DD
+ * Last updated: YYYY-MM-DD
+ * ======================================= */
+import styles from './Header.module.scss';
+---
+```
+
+### SCSSテンプレート
+
+`module.scss`は配置階層に応じた相対パスでfoundationを`@use`し、その直後にコメントヘッダーを記載します。
+
+```scss
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ふもと旅館採用 Header スタイル
+ * URL: /src/components/common/Header.module.scss
+ * Referenced in: /src/components/common/Header.astro
+ * Created: YYYY-MM-DD
+ * Last updated: YYYY-MM-DD
+ * ======================================= */
+```
+
+グローバルSCSSなど複数の`@use`が必要なファイルでは、先頭の`@use`ブロック直後にコメントヘッダーを記載します。
+
+### TypeScriptテンプレート
+
+```ts
+/* =======================================
+ * ふもと旅館採用 UIスクリプト
+ * URL: /src/scripts/ui.ts
+ * Referenced in: /src/layouts/BaseLayout.astro
+ * Created: YYYY-MM-DD
+ * Last updated: YYYY-MM-DD
+ * ======================================= */
+```
+
+### コード内コメント
+
+- ヘッダー以外では、コードを読めば分かる内容をコメントで繰り返さない
 - デザイン由来の特殊な数値や、実装理由が分かりにくい箇所だけ説明する
-- 作成日・更新日だけを管理する定型コメントは使用しない
 
 ## 検証
 

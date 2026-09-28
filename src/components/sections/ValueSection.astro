@@ -1,0 +1,72 @@
+---
+/* =======================================
+ * ふもと旅館採用 ValueSection
+ * URL: /src/components/sections/ValueSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+import { Image } from "astro:assets";
+import valueMain from "../../assets/value/value-main.webp";
+import styles from "./ValueSection.module.scss";
+
+const valueItems = [
+  {
+    title: "本物を守る",
+    description:
+      "全浴槽で、加水・加温・循環・消毒をしない「源泉100％かけ流し」。見栄えや規模よりも温泉の質を優先しています。",
+  },
+  {
+    title: "土地のものを素直に生かす",
+    description:
+      "料理は、旬の食材を複雑に飾るのではなく、素材のおいしさを生かした「田舎のおばちゃん料理」。華美な会席料理より、家庭的なおいしさや安心感を大切にしています。",
+  },
+  {
+    title: "お客様を緊張させない",
+    description:
+      "私たちは、形式にとらわれた接客ではなく、お客様に親しみを感じていただける温かなおもてなしを大切にしています。",
+  },
+] as const;
+---
+
+<section class={styles.value} id="values" aria-labelledby="value-title">
+  <div class={styles.valueVisual}>
+    <Image
+      class={styles.valueImage}
+      src={valueMain}
+      alt="お客様を迎えるために客室へ器を用意するスタッフ"
+      width={750}
+      height={750}
+    />
+
+    <header class={styles.sectionHeading}>
+      <span class={styles.headingEnglish} aria-hidden="true">Value</span>
+      <h2 class={styles.headingJapanese} id="value-title">大切にしている事</h2>
+    </header>
+  </div>
+
+  <div class={styles.valueContent}>
+    <div class={styles.introduction}>
+      <p>郷と共にあること。</p>
+      <p>
+        気取らない温かさのなかで、本物の温泉と土地の味を、心ゆくまで楽しんでもらうこと。
+      </p>
+    </div>
+
+    <ol class={styles.valueList}>
+      {
+        valueItems.map((item, index) => (
+          <li class={styles.valueItem}>
+            <div class={styles.number} aria-hidden="true">
+              <span>{index + 1}</span>
+            </div>
+            <div class={styles.itemContent}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

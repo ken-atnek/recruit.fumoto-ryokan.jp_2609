@@ -1,0 +1,17 @@
+---
+/* =======================================
+ * ふもと旅館採用 FloatingEntryButton
+ * URL: /src/components/common/FloatingEntryButton.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-21
+ * Last updated: 2026-09-21
+ * ======================================= */
+import { Image } from "astro:assets";
+import textEntry from "../../assets/header/text-entry.svg";
+import styles from "./FloatingEntryButton.module.scss";
+---
+
+<a class={styles.entryLink} href="#entry" aria-label="採用応募へ移動">
+  <span>entry</span>
+  <Image src={textEntry} alt="" />
+</a>

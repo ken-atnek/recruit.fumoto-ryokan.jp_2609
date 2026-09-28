@@ -1,0 +1,146 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 AboutSection スタイル
+ * URL: /src/components/sections/AboutSection.module.scss
+ * Referenced in: /src/components/sections/AboutSection.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+
+.about {
+    color: $main-sub-black;
+    background-color: $pure-white;
+    background: url(/images/common/bg-white.webp) repeat center center / contain;
+    padding-bottom: 61px;
+    .aboutVisual {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 750 / 880;
+        overflow: hidden;
+        font-size: inherit;
+        > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 74% center;
+        }
+        .sectionHeading {
+            @include heading-title;
+            top: 2.9rem;
+            right: 5rem;
+            color: $pure-white;
+            .headingEnglish {
+                padding-left: unset;
+            }
+        }
+    }
+    .overview {
+        margin-top: 7.6rem;
+        font-size: inherit;
+        .overviewTop,
+        .overviewBottom {
+            display: grid;
+            gap: 5.2rem;
+            font-size: inherit;
+            .overviewImage {
+                width: 100%;
+                aspect-ratio: 349/410;
+                border-radius: 3rem;
+                object-fit: cover;
+            }
+        }
+        .overviewTop {
+            grid-template-columns: 46% 1fr;
+            padding-right: 5rem;
+            .overviewText {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem;
+                font-size: inherit;
+                h3 {
+                    font-size: fz(30);
+                    font-weight: 700;
+                    line-height: 1.9;
+                    letter-spacing: 0.1em;
+                }
+                p {
+                    font-size: fz(24);
+                    font-weight: 500;
+                    line-height: 2;
+                    letter-spacing: 0.1em;
+                }
+            }
+        }
+        .overviewBottom {
+            grid-template-columns: 1fr 46%;
+            margin-top: 5.5rem;
+            padding-left: 5rem;
+            > p {
+                font-size: fz(24);
+                font-weight: 500;
+                line-height: 2;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+    .cuisine {
+        width: 100%;
+        padding-inline: 5rem;
+        margin: 12.5rem auto 0;
+        font-size: inherit;
+        h3 {
+            font-size: fz(30);
+            font-weight: 700;
+            line-height: 1.9;
+            letter-spacing: 0.1em;
+        }
+        p {
+            margin-top: 3rem;
+            font-size: fz(24);
+            font-weight: 500;
+            line-height: 2;
+            letter-spacing: 0.1em;
+        }
+        .cuisineImage {
+            width: 100%;
+            height: auto;
+            margin-top: 5.1rem;
+            border-radius: 3rem;
+        }
+    }
+    .facilityInformation {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        width: calc(100% - 10rem);
+        margin: 7rem auto 0;
+        padding: 3.7rem 3.9rem;
+        border: 1px solid #71645e;
+        color: $pure-black;
+        font-size: inherit;
+        gap: 1rem 0;
+        .informationRow {
+            font-size: fz(24);
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: subgrid;
+            gap: 0 2rem;
+            dt {
+                position: relative;
+                font-size: inherit;
+                display: flex;
+                justify-content: space-between;
+                &::after {
+                    content: "：";
+                }
+            }
+            dd,
+            small {
+                font-size: inherit;
+            }
+            small {
+                display: block;
+                line-height: 1.9;
+            }
+        }
+    }
+}

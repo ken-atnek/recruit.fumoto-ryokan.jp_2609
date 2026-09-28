@@ -1,0 +1,95 @@
+---
+/* =======================================
+ * ふもと旅館採用 AboutSection
+ * URL: /src/components/sections/AboutSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+import { Image } from "astro:assets";
+import aboutCuisine from "../../assets/about/about-cuisine.webp";
+import aboutExterior from "../../assets/about/about-exterior.webp";
+import aboutLounge from "../../assets/about/about-lounge.webp";
+import aboutSlippers from "../../assets/about/about-slippers.webp";
+import styles from "./AboutSection.module.scss";
+---
+
+<section class={styles.about} id="about" aria-labelledby="about-title">
+  <div class={styles.aboutVisual}>
+    <Image
+      src={aboutExterior}
+      alt="緑に囲まれたふもと旅館の外観"
+      width={750}
+      height={880}
+    />
+    <header class={styles.sectionHeading}>
+      <span class={styles.headingEnglish} aria-hidden="true">ABOUT</span>
+      <h2 class={styles.headingJapanese} id="about-title">
+        ふもと旅館について
+      </h2>
+    </header>
+  </div>
+
+  <div class={styles.overview}>
+    <div class={styles.overviewTop}>
+      <Image
+        class={styles.overviewImage}
+        src={aboutLounge}
+        alt="ふもと旅館の館内から望む黒川温泉の街並み"
+        width={349}
+        height={410}
+      />
+      <div class={styles.overviewText}>
+        <h3>黒川温泉の中心部。<br />ぬくもりを、<br />働く場所に。</h3>
+        <p>
+          ふもと旅館は、黒川温泉の中心に佇む、どこか懐かしくあたたかな温泉宿です。
+        </p>
+      </div>
+    </div>
+
+    <div class={styles.overviewBottom}>
+      <p>
+        趣の異なる湯処と、熊本・九州の旬を味わう料理、心を込めたおもてなしで、お客様をお迎えしています。スタッフ同士の距離も近く、支え合いながら一人ひとりのお客様に寄り添える宿です。
+      </p>
+      <Image
+        class={styles.overviewImage}
+        src={aboutSlippers}
+        alt="ふもと旅館の履物"
+        width={349}
+        height={410}
+      />
+    </div>
+  </div>
+
+  <div class={styles.cuisine}>
+    <h3>また食べたくなる料理を届ける仕事。</h3>
+    <p>
+      料理は、女将が献立を考える「田舎のおばちゃん料理」が基本。九州・熊本の旬の食材を使い、見た目だけの華やかさではなく、素材のおいしさや手づくりの温かさを大切にしています。
+    </p>
+    <Image
+      class={styles.cuisineImage}
+      src={aboutCuisine}
+      alt="九州・熊本の旬の食材を使ったふもと旅館の料理"
+      width={650}
+      height={433}
+    />
+  </div>
+
+  <dl class={styles.facilityInformation}>
+    <div class={styles.informationRow}>
+      <dt>部屋数</dt>
+      <dd>本館１１部屋・別館３部屋</dd>
+    </div>
+    <div class={styles.informationRow}>
+      <dt>価格帯</dt>
+      <dd>
+        お一人様３万円〜５万円程度
+        <small>（税別・一泊二食付き）</small>
+      </dd>
+    </div>
+    <div class={styles.informationRow}>
+      <dt>従業員数</dt>
+      <dd>３０名</dd>
+    </div>
+  </dl>
+</section>

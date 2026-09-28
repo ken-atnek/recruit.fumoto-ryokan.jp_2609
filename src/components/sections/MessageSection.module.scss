@@ -1,0 +1,88 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 MessageSection スタイル
+ * URL: /src/components/sections/MessageSection.module.scss
+ * Referenced in: /src/components/sections/MessageSection.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+
+.message {
+    padding: 12rem 5rem;
+    color: $main-sub-black;
+    .introduction {
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        .sectionHeading {
+            @include heading-title;
+            left: 0;
+            color: $pure-black;
+        }
+        .messageQuote {
+            justify-self: center;
+            width: min(229px, 100%);
+            height: auto;
+        }
+    }
+    .portrait {
+        position: relative;
+        width: min(518px, 100%);
+        margin: 4rem auto 0;
+        font-size: inherit;
+        display: flex;
+        img {
+            aspect-ratio: 719/707;
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .romanName {
+            position: absolute;
+            z-index: 1;
+            top: 28%;
+            right: -15.6%;
+            display: flex;
+            flex-direction: column;
+            color: $pure-black;
+            font-size: fz(24);
+            letter-spacing: 0.2em;
+            @include bodoni-moda;
+        }
+    }
+}
+
+.messageBody {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: min(536px, 100%);
+    margin: 130px auto 0;
+    font-size: inherit;
+    h3 {
+        font-size: fz(30);
+        font-weight: 700;
+        line-height: 1.9;
+        letter-spacing: 0.1em;
+    }
+
+    > p:not(.signature) {
+        font-size: fz(24);
+        font-weight: 500;
+        line-height: 2.2;
+        letter-spacing: 0.1em;
+    }
+    .signature {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: fz(24);
+        font-weight: 500;
+        line-height: 2.2;
+        letter-spacing: 0.1em;
+        gap: 1rem 0;
+    }
+}

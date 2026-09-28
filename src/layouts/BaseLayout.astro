@@ -1,5 +1,12 @@
 ---
-import '../styles/globals.scss';
+/* =======================================
+ * ふもと旅館採用 共通レイアウト
+ * URL: /src/layouts/BaseLayout.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-19
+ * Last updated: 2026-09-21
+ * ======================================= */
+import "../styles/globals.scss";
 
 interface Props {
   title?: string;
@@ -7,13 +14,13 @@ interface Props {
 }
 
 const {
-  title = '有限会社ふもと旅館 採用サイト',
-  description = '有限会社ふもと旅館の採用情報をご案内します。',
+  title = "有限会社ふもと旅館 採用サイト",
+  description = "有限会社ふもと旅館の採用情報をご案内します。",
 } = Astro.props;
 
-const productionOrigin = new URL('https://recruit.fumoto-ryokan.jp/');
+const productionOrigin = new URL("https://recruit.fumoto-ryokan.jp/");
 const canonicalUrl = new URL(Astro.url.pathname, productionOrigin);
-const isDemo = import.meta.env.SITE_ENV !== 'production';
+const isDemo = import.meta.env.SITE_ENV !== "production";
 ---
 
 <!doctype html>
@@ -23,9 +30,18 @@ const isDemo = import.meta.env.SITE_ENV !== 'production';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="description" content={description} />
-    <meta name="robots" content={isDemo ? 'noindex, nofollow' : 'index, follow'} />
+    <meta
+      name="robots"
+      content={isDemo ? "noindex, nofollow" : "index, follow"}
+    />
 
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&display=swap"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />

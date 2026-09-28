@@ -1,0 +1,221 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 RequirementsSection スタイル
+ * URL: /src/components/sections/RequirementsSection.module.scss
+ * Referenced in: /src/components/sections/RequirementsSection.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+
+.requirements {
+    margin-top: 10rem;
+    padding-bottom: 0;
+    color: $main-sub-black;
+    padding-inline: 5rem;
+    .card {
+        width: 100%;
+        margin-inline: auto;
+        padding: 5rem 5rem 8.5rem;
+        border: 1px solid #71645e;
+        border-radius: 3rem;
+        background-color: $pure-white;
+        font-size: inherit;
+        h3 {
+            margin-bottom: 2.2rem;
+            font-size: fz(28);
+            font-weight: 700;
+            line-height: 1.6;
+            letter-spacing: 0.1em;
+        }
+        .detailList {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            font-size: inherit;
+            .detailGroup {
+                font-size: inherit;
+                .jobList,
+                .bulletList,
+                .selectionList {
+                    margin: 0;
+                    padding: 0;
+                    font-size: inherit;
+                }
+
+                .jobList {
+                    margin-bottom: 2rem;
+                    list-style: none;
+                    li {
+                        color: #638359;
+                        font-weight: 700;
+                        line-height: 1.6;
+                    }
+                }
+                .salaryList {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4rem;
+                    font-size: inherit;
+                    & > div {
+                        font-size: inherit;
+                        .salary {
+                            color: $pure-black;
+                            line-height: 2;
+                            font-weight: 500;
+                            font-size: fz(30);
+                        }
+                        .notes {
+                            font-size: inherit;
+                            p {
+                                font-size: fz(24);
+                                font-weight: 400;
+                                line-height: 1.6;
+                            }
+                        }
+                    }
+                }
+                .bulletList {
+                    li {
+                        line-height: 1.4;
+                    }
+                    li::before {
+                        content: "・";
+                    }
+                }
+
+                h4,
+                p,
+                li {
+                    font-size: fz(24);
+                    // font-weight: 500;
+                    letter-spacing: 0.1em;
+                }
+                h4 {
+                    color: #638359;
+                    font-weight: 700;
+                }
+                p {
+                    line-height: 1.6;
+                }
+                .dormDescription {
+                    margin-top: 2rem;
+                }
+            }
+        }
+        .bottomSelection {
+            margin-top: 6rem;
+            .selectionList {
+                font-size: inherit;
+                counter-reset: number 0;
+                li {
+                    font-size: fz(24);
+                    line-height: 1.6;
+                    &::before {
+                        content: counter(number) ".";
+                        counter-increment: number 1;
+                        margin-right: 0.3em;
+                    }
+                }
+            }
+            .selectionNote {
+                margin-top: 2rem;
+                font-size: fz(24);
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+.dormSlider {
+    margin-top: 6rem;
+    outline-offset: 0.8rem;
+    touch-action: pan-y;
+    font-size: inherit;
+    .slideList {
+        position: relative;
+        aspect-ratio: 550 / 366;
+        font-size: inherit;
+        .slide {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border-radius: 3rem;
+            font-size: inherit;
+            &[hidden] {
+                display: none;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                inset: auto 0 0;
+                height: 35%;
+                background: linear-gradient(transparent, rgb(0 0 0 / 45%));
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            figcaption {
+                position: absolute;
+                z-index: 1;
+                right: 0;
+                bottom: 2.3rem;
+                left: 0;
+                color: $pure-white;
+                font-size: fz(24);
+                line-height: 1.6;
+                text-align: center;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+    .sliderControls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        .pagination {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            button {
+                width: 1.4rem;
+                height: 1.4rem;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                background-color: #d9d9d9;
+                cursor: pointer;
+                &[aria-current="true"] {
+                    background-color: #71645e;
+                }
+            }
+        }
+    }
+}
+.entryLink {
+    position: relative;
+    margin-top: 7rem;
+    aspect-ratio: 550/160;
+    width: 100%;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(90deg, #cbddd2 0%, #e4ce9a 100%);
+    font-size: inherit;
+    padding-top: 1.4em;
+    gap: 0.5em;
+    z-index: 10;
+    span {
+        color: $pure-white;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: fz(24);
+        letter-spacing: 0.1em;
+    }
+    img {
+        width: 28.04cqw;
+    }
+}

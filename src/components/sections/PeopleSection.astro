@@ -1,0 +1,51 @@
+---
+/* =======================================
+ * ふもと旅館採用 PeopleSection
+ * URL: /src/components/sections/PeopleSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+import { Image } from "astro:assets";
+import peopleHeader01 from "../../assets/people/header01.webp";
+import peopleHeader02 from "../../assets/people/header02.webp";
+import peopleHeader03 from "../../assets/people/header03.webp";
+import peopleText from "../../assets/people/svg-text.svg";
+import styles from "./PeopleSection.module.scss";
+---
+
+<section class={styles.people} id="people" aria-labelledby="people-title">
+  <div class={styles.wrapHead}>
+    <header class={styles.sectionHeading}>
+      <span class={styles.headingEnglish} aria-hidden="true">
+        <span>Who We’re</span>
+        <span>Looking For</span>
+      </span>
+      <h2 class={styles.headingJapanese} id="people-title">求める人材</h2>
+    </header>
+
+    <div class={styles.peopleVisual} aria-hidden="true">
+      <div class={styles.peoplePhoto} data-photo="1">
+        <Image src={peopleHeader01} alt="" />
+      </div>
+      <div class={styles.peoplePhoto} data-photo="2">
+        <Image src={peopleHeader02} alt="" />
+      </div>
+      <div class={styles.peoplePhoto} data-photo="3">
+        <Image src={peopleHeader03} alt="" />
+      </div>
+      <Image class={styles.peopleText} src={peopleText} alt="" />
+    </div>
+  </div>
+  <div class={styles.peopleContent}>
+    <h3>私たちが求めているのは、お客様の笑顔を自分の喜びにできる方です。</h3>
+    <div class={styles.description}>
+      <p>
+        決められた仕事をこなすだけでなく、「どうすれば、もっと心地よく過ごしていただけるだろう」と考え、自ら行動できること。仲間を思いやり、互いに声を掛け合いながら、温かな雰囲気をつくれること。そして、黒川温泉の自然や文化、地域の人々を大切にし、この郷とともに成長していこうとする気持ちを、私たちは何より大切にしています。
+      </p>
+      <p>
+        経験の有無よりも、人に喜んでもらうことが好きで、新しいことに素直な気持ちで挑戦できる方と、一緒にふもと旅館の未来をつくっていきたいと考えています。
+      </p>
+    </div>
+  </div>
+</section>

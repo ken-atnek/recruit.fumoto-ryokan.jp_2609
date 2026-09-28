@@ -1,0 +1,81 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 HeroSection スタイル
+ * URL: /src/components/sections/HeroSection.module.scss
+ * Referenced in: /src/components/sections/HeroSection.astro
+ * Created: 2026-09-21
+ * Last updated: 2026-09-22
+ * ======================================= */
+
+.hero {
+    position: relative;
+    padding-block: 66px;
+    overflow: hidden;
+    .photoList {
+        --photo-gap: 20px;
+        --slide-duration: 40s;
+        display: flex;
+        flex-direction: column;
+        gap: var(--photo-gap);
+        .photoTrack {
+            display: flex;
+            width: max-content;
+            gap: var(--photo-gap) 1rem;
+            will-change: transform;
+        }
+        .photoTrackRight {
+            animation: slideRight var(--slide-duration) linear infinite;
+        }
+        .photoTrackLeft {
+            animation: slideLeft var(--slide-duration) linear infinite;
+        }
+        .photo {
+            flex: 0 0 clamp(116px, 31.0667vw, 233px);
+            overflow: hidden;
+            aspect-ratio: 233 / 334;
+            border-radius: 100vmax;
+            &:nth-last-of-type(2n) {
+                translate: 0 2rem;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .copy {
+        position: absolute;
+        inset: 0;
+        @include flex-center;
+        width: 100%;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translate3d(calc(-50% - var(--photo-gap) / 2), 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(calc(-50% - var(--photo-gap) / 2), 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .photoList .photoTrack {
+        animation: none;
+        transform: none;
+        will-change: auto;
+    }
+}

@@ -1,0 +1,15 @@
+/* =======================================
+ * ふもと旅館採用 foundation 公開エントリー
+ * URL: /src/styles/foundation/_index.scss
+ * Referenced in: /src/components/common/Header.module.scss, /src/components/common/FloatingEntryButton.module.scss, /src/components/sections/HeroSection.module.scss
+ * Created: 2026-07-07
+ * Last updated: 2026-09-21
+ * Created source: ファイル作成日時（移植元由来）
+ * ======================================= */
+@forward "settings";
+@forward "typography";
+@forward "colors";
+@forward "breakpoints";
+@forward "interaction";
+@forward "svg";
+@forward "ui";

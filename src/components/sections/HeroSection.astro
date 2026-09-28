@@ -1,0 +1,78 @@
+---
+/* =======================================
+ * ふもと旅館採用 HeroSection
+ * URL: /src/components/sections/HeroSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-21
+ * Last updated: 2026-09-22
+ * ======================================= */
+import { Image } from "astro:assets";
+import heroPhoto01 from "../../assets/hero/hero-photo-01.webp";
+import heroPhoto02 from "../../assets/hero/hero-photo-02.webp";
+import heroPhoto03 from "../../assets/hero/hero-photo-03.webp";
+import heroPhoto04 from "../../assets/hero/hero-photo-04.webp";
+import heroPhoto05 from "../../assets/hero/hero-photo-05.webp";
+import heroPhoto06 from "../../assets/hero/hero-photo-06.webp";
+import heroPhoto07 from "../../assets/hero/hero-photo-07.webp";
+import heroPhoto08 from "../../assets/hero/hero-photo-08.webp";
+import heroPhoto09 from "../../assets/hero/hero-photo-09.webp";
+import heroPhoto10 from "../../assets/hero/hero-photo-10.webp";
+import textH1 from "../../assets/hero/text-h1.svg";
+import styles from "./HeroSection.module.scss";
+
+const heroPhotos = [
+  heroPhoto01,
+  heroPhoto02,
+  heroPhoto03,
+  heroPhoto04,
+  heroPhoto05,
+  heroPhoto06,
+  heroPhoto07,
+  heroPhoto08,
+  heroPhoto09,
+  heroPhoto10,
+] as const;
+
+const photoRows = [
+  {
+    photos: heroPhotos.slice(0, 5),
+    startAt: 1,
+    trackClass: styles.photoTrackRight,
+  },
+  {
+    photos: heroPhotos.slice(5),
+    startAt: 6,
+    trackClass: styles.photoTrackLeft,
+  },
+] as const;
+---
+
+<section class={styles.hero} aria-labelledby="hero-title">
+  <div class={styles.photoList} aria-hidden="true">
+    {
+      photoRows.map((row) => (
+        <div class={styles.photoRow}>
+          <div class={`${styles.photoTrack} ${row.trackClass}`}>
+            {[...row.photos, ...row.photos].map((photo, index) => (
+              <div
+                class={styles.photo}
+                data-photo={row.startAt + (index % row.photos.length)}
+              >
+                <Image src={photo} alt="" width={466} height={668} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <h1 class={styles.copy} id="hero-title">
+    <Image
+      src={textH1}
+      alt="「ただいま」と、言っていただけるようなお宿を目指して"
+      width={466}
+      height={668}
+    />
+  </h1>
+</section>

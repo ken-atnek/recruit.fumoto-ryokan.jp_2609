@@ -1,0 +1,32 @@
+---
+/* =======================================
+ * ふもと旅館採用 Footer
+ * URL: /src/components/common/Footer.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+import { Image } from "astro:assets";
+import footerObi from "../../assets/footer/footer-obi.webp";
+import footerYukata from "../../assets/footer/footer-yukata.webp";
+import styles from "./Footer.module.scss";
+---
+
+<footer class={styles.footer}>
+  <div class={styles.yukataPlacement} aria-hidden="true">
+    <Image src={footerYukata} alt="" width={1672} height={941} />
+  </div>
+
+  <div class={styles.obiPlacement} aria-hidden="true">
+    <Image src={footerObi} alt="" width={1536} height={1024} />
+  </div>
+
+  <img
+    class={styles.logo}
+    src="/images/common/logo-bk.webp"
+    alt="ふもと旅館"
+    width="578"
+    height="215"
+  />
+  <p class={styles.jobOpenings}>JOB OPENINGS</p>
+</footer>

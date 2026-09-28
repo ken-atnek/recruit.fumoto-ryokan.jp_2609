@@ -1,0 +1,83 @@
+@use "../../styles/foundation/" as *;
+/* =======================================
+ * ふもと旅館採用 PeopleSection スタイル
+ * URL: /src/components/sections/PeopleSection.module.scss
+ * Referenced in: /src/components/sections/PeopleSection.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+
+.people {
+    position: relative;
+    padding: 9.5rem 0 5.3rem;
+    color: $main-sub-black;
+    background-color: #dfe4e1;
+    border-radius: 3rem;
+    .wrapHead {
+        position: relative;
+        font-size: inherit;
+        display: flex;
+        justify-content: flex-end;
+        .sectionHeading {
+            @include heading-title;
+            top: 0;
+            left: 5rem;
+            gap: 1.4rem;
+            color: $pure-black;
+            .headingEnglish {
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+                line-height: 1.1;
+                span {
+                    white-space: nowrap;
+                }
+            }
+        }
+        .peopleVisual {
+            position: relative;
+            width: 83cqw;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            .peoplePhoto {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .peopleText {
+                position: absolute;
+                left: 50%;
+                translate: -50%;
+                top: 3%;
+                width: 95%;
+                display: block;
+                rotate: -3.9deg;
+            }
+        }
+    }
+    .peopleContent {
+        padding-inline: 5rem;
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        margin-top: 7rem;
+        h3 {
+            font-size: fz(30);
+            font-weight: 700;
+            line-height: 1.9;
+            letter-spacing: 0.1em;
+        }
+        .description {
+            margin-top: 3rem;
+            font-size: inherit;
+            p {
+                font-size: fz(24);
+                font-weight: 500;
+                line-height: 2;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+}

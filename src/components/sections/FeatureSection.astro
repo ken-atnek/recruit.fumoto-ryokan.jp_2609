@@ -1,0 +1,167 @@
+---
+/* =======================================
+ * ふもと旅館採用 FeatureSection
+ * URL: /src/components/sections/FeatureSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-22
+ * Last updated: 2026-09-22
+ * ======================================= */
+import { Image } from "astro:assets";
+import mealBackground from "../../assets/feature/meal-background.webp";
+import mealBottom01 from "../../assets/feature/meal-bottom-01.webp";
+import mealBottom02 from "../../assets/feature/meal-bottom-02.webp";
+import mealLeft01 from "../../assets/feature/meal-left-01.webp";
+import mealLeft02 from "../../assets/feature/meal-left-02.webp";
+import mealRight01 from "../../assets/feature/meal-right-01.webp";
+import mealRight02 from "../../assets/feature/meal-right-02.webp";
+import onsenBackground from "../../assets/feature/onsen-background.webp";
+import onsenBottom01 from "../../assets/feature/onsen-bottom-01.webp";
+import onsenBottom02 from "../../assets/feature/onsen-bottom-02.webp";
+import onsenLeft01 from "../../assets/feature/onsen-left-01.webp";
+import onsenLeft02 from "../../assets/feature/onsen-left-02.webp";
+import onsenRight01 from "../../assets/feature/onsen-right-01.webp";
+import onsenRight02 from "../../assets/feature/onsen-right-02.webp";
+import stayBackground from "../../assets/feature/stay-background.webp";
+import stayBottom01 from "../../assets/feature/stay-bottom-01.webp";
+import stayBottom02 from "../../assets/feature/stay-bottom-02.webp";
+import stayLeft01 from "../../assets/feature/stay-left-01.webp";
+import stayLeft02 from "../../assets/feature/stay-left-02.webp";
+import stayRight01 from "../../assets/feature/stay-right-01.webp";
+import stayRight02 from "../../assets/feature/stay-right-02.webp";
+import styles from "./FeatureSection.module.scss";
+
+const featureItems = [
+  {
+    className: styles.onsen,
+    title: "温泉",
+    background: onsenBackground,
+    lead: "温泉の魅力と、心まであたためる仕事。",
+    description: [
+      "ふもと旅館は、黒川温泉の中心にある「お風呂自慢」の宿です。自家源泉の湯を、すべての湯船で100％源泉かけ流し。露天風呂や11か所の貸切風呂など、趣の異なる温泉を楽しめます。温泉の魅力や季節ごとの景色を自分の言葉で伝え、お客様の思い出づくりに関われることも、ここで働く魅力です。",
+    ],
+    photoSlots: [
+      {
+        className: styles.photoLeft,
+        width: 395,
+        height: 263,
+        photos: [onsenLeft01, onsenLeft02],
+      },
+      {
+        className: styles.photoRight,
+        width: 324,
+        height: 273,
+        photos: [onsenRight01, onsenRight02],
+      },
+      {
+        className: styles.photoBottom,
+        width: 445,
+        height: 296,
+        photos: [onsenBottom01, onsenBottom02],
+      },
+    ],
+  },
+  {
+    className: styles.meal,
+    title: "食事",
+    background: mealBackground,
+    lead: "お客様に、旬と懐かしさを届ける。",
+    description: [
+      "九州・熊本の新鮮な食材を使い、季節の味わいを大切にした料理をご提供しています。地元の恵みを生かした一品一品に、ふもと旅館らしい温かなおもてなしを込めています。",
+      "料理の魅力を自分の言葉で伝え、お客様の笑顔や「おいしかった」という声を間近で感じられることも、ここで働く喜びです。",
+    ],
+    photoSlots: [
+      {
+        className: styles.photoLeft,
+        width: 395,
+        height: 263,
+        photos: [mealLeft01, mealLeft02],
+      },
+      {
+        className: styles.photoRight,
+        width: 324,
+        height: 273,
+        photos: [mealRight01, mealRight02],
+      },
+      {
+        className: styles.photoBottom,
+        width: 445,
+        height: 296,
+        photos: [mealBottom01, mealBottom02],
+      },
+    ],
+  },
+  {
+    className: styles.stay,
+    title: "お宿",
+    background: stayBackground,
+    lead: "くつろぎを整え、心に残る滞在を届ける。",
+    description: [
+      "九州・熊本の新鮮な食材を使い、季節の味わいを大切にした料理をご提供しています。地元の恵みを生かした一品一品に、ふもと旅館らしい温かなおもてなしを込めています。",
+      "料理の魅力を自分の言葉で伝え、お客様の笑顔や「おいしかった」という声を間近で感じられることも、ここで働く喜びです。",
+    ],
+    photoSlots: [
+      {
+        className: styles.photoLeft,
+        width: 395,
+        height: 263,
+        photos: [stayLeft01, stayLeft02],
+      },
+      {
+        className: styles.photoRight,
+        width: 324,
+        height: 273,
+        photos: [stayRight01, stayRight02],
+      },
+      {
+        className: styles.photoBottom,
+        width: 445,
+        height: 296,
+        photos: [stayBottom01, stayBottom02],
+      },
+    ],
+  },
+] as const;
+---
+
+<section class={styles.feature} id="features" aria-labelledby="feature-title">
+  <header class={styles.sectionHeading}>
+    <span class={styles.headingEnglish} aria-hidden="true">feature</span>
+    <h2 class={styles.headingJapanese} id="feature-title">ふもと旅館の特徴</h2>
+  </header>
+
+  {
+    featureItems.map((item) => (
+      <article class={`${styles.featureItem} ${item.className}`}>
+        <div class={styles.featureVisual}>
+          <div class={styles.backgroundPhoto} aria-hidden="true">
+            <Image src={item.background} alt="" width={500} height={700} />
+          </div>
+          <h3 class={styles.itemTitle}>{item.title}</h3>
+          {item.photoSlots.map((slot) => (
+            <div
+              class={`${styles.photoSlot} ${slot.className}`}
+              aria-hidden="true"
+            >
+              {slot.photos.map((photo) => (
+                <Image
+                  src={photo}
+                  alt=""
+                  width={slot.width}
+                  height={slot.height}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+        <div class={styles.featureCopy}>
+          <p class={styles.featureLead}>{item.lead}</p>
+          <div class={styles.featureDescription}>
+            {item.description.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</section>

@@ -1,0 +1,165 @@
+---
+/* =======================================
+ * ふもと旅館採用 VoiceSection
+ * URL: /src/components/sections/VoiceSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-09-28
+ * Last updated: 2026-09-28
+ * ======================================= */
+import { Image } from "astro:assets";
+import voiceProfile from "../../assets/voice/voice-profile.webp";
+import voiceStrip02 from "../../assets/voice/voice-strip-02.webp";
+import voiceStrip03 from "../../assets/voice/voice-strip-03.webp";
+import voiceStrip04 from "../../assets/voice/voice-strip-04.webp";
+import voiceStrip05 from "../../assets/voice/voice-strip-05.webp";
+import styles from "./VoiceSection.module.scss";
+
+const scheduleItems = [
+  {
+    time: "08:00",
+    title: "出勤・朝礼",
+    description: "当日の予約状況やお客様情報、スタッフの配置を確認",
+  },
+  {
+    time: "08:30",
+    title: "朝食対応・館内チェック",
+    description: "お客様へのご挨拶や朝食会場のサポート",
+  },
+  {
+    time: "09:30",
+    title: "チェックアウト対応",
+    description: "お見送りやフロント対応、スタッフのフォロー",
+  },
+  {
+    time: "10:30",
+    title: "客室・館内確認",
+    description: "清掃状況や温泉、館内設備などをチェック",
+  },
+  {
+    time: "11:30",
+    title: "事務作業・ミーティング",
+    description: "予約確認、シフト調整、スタッフとの情報共有",
+  },
+  { time: "12:30", title: "昼休憩", description: "スタッフと一緒にひと休み" },
+  {
+    time: "13:30",
+    title: "チェックイン準備",
+    description: "当日のお客様情報や客室、館内の最終確認",
+  },
+  {
+    time: "15:00",
+    title: "チェックイン・お出迎え",
+    description: "お客様をお迎えし、館内や温泉をご案内",
+  },
+  {
+    time: "16:30",
+    title: "夕食準備・スタッフフォロー",
+    description: "夕食会場の確認や各部署との連携",
+  },
+  {
+    time: "17:30",
+    title: "引き継ぎ・翌日の確認",
+    description: "夜勤務スタッフへの共有、翌日の予約状況を確認",
+  },
+  {
+    time: "18:00",
+    title: "退勤",
+    description: "今日も一日おつかれさまでした！",
+  },
+];
+
+const stripPhotos = [
+  { src: voiceProfile, crop: "profile", position: "upper" },
+  { src: voiceStrip02, crop: "scene02", position: "lower" },
+  { src: voiceStrip03, crop: "scene03", position: "upper" },
+  { src: voiceStrip04, crop: "scene04", position: "lower" },
+  { src: voiceStrip05, crop: "scene05", position: "upper" },
+];
+---
+
+<section class={styles.voice} id="voices" aria-labelledby="voice-title">
+  <header class={styles.sectionHeading}>
+    <span class={styles.headingEnglish} aria-hidden="true">Voice</span>
+    <h2 class={styles.headingJapanese} id="voice-title">先輩の声</h2>
+  </header>
+
+  <figure class={styles.profileImage}>
+    <Image
+      src={voiceProfile}
+      alt="館内で接客の準備をするふもと旅館のスタッフ"
+      width={840}
+    />
+  </figure>
+
+  <div class={styles.voiceContent}>
+    <div class={styles.profileSummary}>
+      <p>名字 名前(30歳)</p>
+      <p>入社５年目</p>
+      <p>プロジェクトマネージャー</p>
+    </div>
+
+    <section class={styles.question}>
+      <h3>Q.1 入社のきっかけは？</h3>
+      <div class={styles.answer}>
+        <p>もともと旅館で働こうと決めていたわけではなかったんです。</p>
+        <p>
+          でも、ふもと旅館を知って、実際にここで働く人たちと話してみたときに、スタッフ同士の距離の近さや、あたたかい雰囲気がすごく印象に残って。
+        </p>
+        <p>
+          仕事として「お客様を迎える」というより、自分たちらしく楽しみながら、その楽しさがお客様にも伝わっていく。そんな宿のあり方がいいなと思ったのが、入社したきっかけです。
+        </p>
+        <p>
+          気づけば5年。今ではマネージャーとして、今度は自分が「ここで働いてみたい」と思ってもらえるような場所をつくる側になりました。
+        </p>
+      </div>
+    </section>
+
+    <section class={styles.question}>
+      <h3>Q.2 やりがいを感じる時は？</h3>
+      <div class={styles.answer}>
+        <p>
+          一番のやりがいは、お客様の「ありがとう」や「また来たい」という言葉を直接聞けることですね。ふもと旅館は、ただ決められた仕事をするのではなく、「もっとこうしたら喜んでもらえるかも」というアイデアをみんなで形にできる場所。頑張った分だけ仕事を任せてもらえるので、自分自身の成長も実感できます。スタッフみんなで、より良い宿をつくっていけることが、この仕事の魅力だと思います。
+        </p>
+      </div>
+    </section>
+
+    <section class={styles.schedule} aria-labelledby="voice-schedule-title">
+      <h3 id="voice-schedule-title">1日のスケジュール例</h3>
+      <ol>
+        {
+          scheduleItems.map((item) => (
+            <li>
+              <div class={styles.scheduleHeading}>
+                <time>{item.time}</time>
+                <h4>{item.title}</h4>
+              </div>
+              <p>{item.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+    <aside class={styles.message}>
+      <h3>名前さんよりメッセージ</h3>
+      <p>
+        旅館の仕事って、最初は少し難しそうに感じるかもしれません。でも、ふもと旅館には困ったときに自然と声をかけてくれる仲間がいます。経験がなくても、人と接することが好きだったり、誰かに喜んでもらうことが好きだったり、そんな気持ちがあれば大丈夫。一緒に働きながら、少しずつできることを増やしていきましょう。新しい仲間に出会えることを、楽しみにしています！
+      </p>
+    </aside>
+  </div>
+
+  <div class={styles.photoStrip} aria-hidden="true">
+    <div class={styles.photoTrack}>
+      {
+        [...stripPhotos, ...stripPhotos].map((photo) => (
+          <div
+            class={styles.stripPhoto}
+            data-crop={photo.crop}
+            data-position={photo.position}
+          >
+            <Image src={photo.src} alt="" width={505} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
